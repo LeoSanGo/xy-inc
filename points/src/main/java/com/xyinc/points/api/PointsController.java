@@ -10,7 +10,7 @@ public class PointsController {
 	
 	@GetMapping()
 	public String get() {
-		return "API via gets";
+		return "teste";
 	}
 	
 	
