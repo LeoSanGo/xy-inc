@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.xyinc.points.api.domain.Poi;
-import com.xyinc.points.api.domain.PoiService;
-import com.xyinc.points.api.domain.dto.PoiDTO;
+import com.xyinc.points.domain.Poi;
+import com.xyinc.points.domain.dto.PoiDTO;
+import com.xyinc.points.service.PoiService;
 
 @RestController
 @RequestMapping("/points")
@@ -48,9 +49,9 @@ public class PointsController {
 	
 	
 	@GetMapping("/search")
-	private ResponseEntity getPoisByProximity(@PathVariable("coordX") int coordX, 
-			@PathVariable("coordY") int coordY, @PathVariable("distance") int distance) {
-		return ResponseEntity.ok(service.calcDistance(20, 10, 10));
+	private ResponseEntity getPoisByProximity(@RequestParam(value = "coordX", required = true) int coordX, 
+			@RequestParam(value = "coordY", required = true) int coordY, @RequestParam(value = "distance", required = true) int distance) {
+		return ResponseEntity.ok(service.calcDistance(coordX, coordY, distance));
 	}
 
 }

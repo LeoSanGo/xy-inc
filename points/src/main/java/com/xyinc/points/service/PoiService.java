@@ -1,4 +1,4 @@
-package com.xyinc.points.api.domain;
+package com.xyinc.points.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
-import com.xyinc.points.api.domain.dto.PoiDTO;
+import com.xyinc.points.domain.Poi;
+import com.xyinc.points.domain.PoiRepository;
+import com.xyinc.points.domain.dto.PoiDTO;
 @Service
 public class PoiService {
 	

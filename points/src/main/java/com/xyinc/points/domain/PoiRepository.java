@@ -1,4 +1,4 @@
-package com.xyinc.points.api.domain;
+package com.xyinc.points.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

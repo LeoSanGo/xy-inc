@@ -1,8 +1,8 @@
-package com.xyinc.points.api.domain.dto;
+package com.xyinc.points.domain.dto;
 
 import org.modelmapper.ModelMapper;
 
-import com.xyinc.points.api.domain.Poi;
+import com.xyinc.points.domain.Poi;
 
 import lombok.Data;
 
