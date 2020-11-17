@@ -2,10 +2,11 @@ package com.xyinc.points.api;
 
 import java.net.URI;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,11 +27,11 @@ public class PointsController {
 	
 	@GetMapping()
 	public ResponseEntity get() {
-		return ResponseEntity.ok(service.getPois()); //Verificar o retorno do Json
+		return ResponseEntity.ok(service.getPois());
 	}
 	
 	@PostMapping("/register")
-	public ResponseEntity post(@RequestBody Poi poi) {
+	public ResponseEntity post(@Valid @RequestBody Poi poi) {
 		
 		try {
 			PoiDTO p =  service.insert(poi);

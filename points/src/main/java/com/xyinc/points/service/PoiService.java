@@ -8,11 +8,13 @@ import javax.crypto.Mac;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
+import org.springframework.validation.annotation.Validated;
 
 import com.xyinc.points.domain.Poi;
 import com.xyinc.points.domain.PoiRepository;
 import com.xyinc.points.domain.dto.PoiDTO;
 @Service
+@Validated
 public class PoiService {
 	
 	@Autowired
