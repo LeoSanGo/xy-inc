@@ -20,10 +20,10 @@ public class Poi {
 	@NotBlank
 	private String name;
 	
-	@Positive
+	@Positive(message = "Coordenada x deve ser maior que 0")
 	private int coordX;
 	
-	@Positive
+	@Positive(message = "Coordenada y deve ser maior que 0")
 	private int coordY;
 
 }

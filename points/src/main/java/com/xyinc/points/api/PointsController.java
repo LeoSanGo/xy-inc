@@ -2,10 +2,12 @@ package com.xyinc.points.api;
 
 import java.net.URI;
 
+import javax.validation.ConstraintDeclarationException;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,9 +32,11 @@ public class PointsController {
 		return ResponseEntity.ok(service.getPois());
 	}
 	
-	@PostMapping("/register")
-	public ResponseEntity post(@Valid @RequestBody Poi poi) {
-		
+	@PostMapping("/insert")
+	public ResponseEntity post(@Valid @RequestBody Poi poi, BindingResult br) {
+		if (br.hasErrors()) {
+			throw new ConstraintDeclarationException(br.getAllErrors().get(0).getDefaultMessage());
+		}
 		try {
 			PoiDTO p =  service.insert(poi);
 			
